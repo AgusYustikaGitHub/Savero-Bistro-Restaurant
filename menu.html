@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Savero Bistro</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body class="bg-stone-50 text-stone-800 font-sans">
+    <!-- NAVBAR -->
+    <nav
+      x-data="{ open: false }"
+      class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div class="text-2xl font-bold tracking-tighter text-orange-600">
+          SAVERO.
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8 font-medium">
+          <a href="index.html" class="hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="text-orange-600">Menu</a>
+          <a href="about.html" class="hover:text-orange-600">Our Story</a>
+          <a href="contact.html" class="hover:text-orange-600 transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Desktop Button -->
+        <div class="hidden md:block">
+          <a
+            href="index.html#booking"
+            class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition"
+          >
+            Order Now
+          </a>
+        </div>
+
+        <!-- Mobile Button -->
+        <button
+          @click="open = !open"
+          class="md:hidden text-2xl focus:outline-none cursor-pointer"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        x-show="open"
+        x-transition
+        @click.outside="open = false"
+        class="md:hidden bg-white shadow-md"
+      >
+        <div class="flex flex-col px-6 py-4 space-y-4 font-medium text-center">
+          <a href="index.html" class="hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="text-orange-600">Menu</a>
+          <a href="about.html" class="hover:text-orange-600 transition"
+            >Our Story</a
+          >
+          <a href="contact.html" class="hover:text-orange-600 transition"
+            >Contact</a
+          >
+
+          <a
+            href="index.html#booking"
+            class="bg-orange-600 text-white px-6 py-2 rounded-full text-center hover:bg-orange-700 transition"
+          >
+            Order Now
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pt-32 pb-16 bg-white border-b border-stone-100">
+      <div class="container mx-auto px-6 text-center">
+        <h4
+          class="text-orange-600 font-bold uppercase tracking-[0.3em] text-xs mb-3"
+        >
+          Our Selection
+        </h4>
+        <h1 class="text-4xl md:text-6xl font-bold text-stone-900 mb-6 italic">
+          Signature Menu
+        </h1>
+        <p class="text-stone-500 max-w-2xl mx-auto leading-relaxed">
+          Dari bahan organik lokal hingga teknik memasak presisi, setiap
+          hidangan dirancang untuk memberikan pengalaman rasa yang tak
+          terlupakan.
+        </p>
+      </div>
+    </header>
+
+    <!-- CATEGORY -->
+    <div class="bg-white/90 backdrop-blur-sm border-b border-stone-200">
+      <div class="container mx-auto px-6 py-4">
+        <div
+          class="flex justify-center space-x-4 md:space-x-12 overflow-x-auto no-scrollbar whitespace-nowrap"
+        >
+          <button
+            class="px-4 py-2 text-sm font-bold text-orange-600 border-b-2 border-orange-600"
+          >
+            All Dish
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-bold text-stone-400 hover:text-stone-800 transition"
+          >
+            Main Course
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-bold text-stone-400 hover:text-stone-800 transition"
+          >
+            Appetizers
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-bold text-stone-400 hover:text-stone-800 transition"
+          >
+            Desserts
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-bold text-stone-400 hover:text-stone-800 transition"
+          >
+            Beverages
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUR MENU -->
+    <main class="py-12 container mx-auto px-6">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16"
+      >
+        <!-- Menu 1 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+            <div
+              class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-orange-600"
+            >
+              Popular
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Artisan Truffle Pizza
+            </h3>
+            <span class="text-orange-600 font-bold whitespace-nowrap"
+              >Rp 125k</span
+            >
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Dough fermentasi 48 jam dengan topping jamur truffle segar,
+            mozzarella bufala, dan basil organik.
+          </p>
+        </div>
+
+        <!-- Menu 2 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Healthy Salmon Bowl
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 85k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Salmon panggang Norwegia dengan quinoa, alpukat segar, edamame, dan
+            dressing wijen khas Savero.
+          </p>
+        </div>
+
+        <!-- Menu 3 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+            <div
+              class="absolute top-4 right-4 bg-stone-900/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-white italic text-[10px] uppercase tracking-widest"
+            >
+              Recommended
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Smoked Wagyu Brisket
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 195k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Wagyu MB5+ yang diasap 12 jam menggunakan kayu apel, disajikan
+            dengan homemade BBQ sauce.
+          </p>
+        </div>
+
+        <!-- Menu 4 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">Pesto Genovese</h3>
+            <span class="text-orange-600 font-bold">Rp 75k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Pasta buatan tangan dengan saus pesto basil segar, kacang pinus, dan
+            taburan keju parmesan premium.
+          </p>
+        </div>
+
+        <!-- Menu 5 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Velvet Chocolate Cake
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 45k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Cokelat Belgia 70% dengan tekstur yang sangat lembut, disajikan
+            dengan sorbet berry asam manis.
+          </p>
+        </div>
+
+        <!-- Menu 6 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Menu"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">Tropical Sunshine</h3>
+            <span class="text-orange-600 font-bold">Rp 38k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Perpaduan jus nanas, markisa, dan sedikit sentuhan daun mint yang
+            menyegarkan dahaga Anda.
+          </p>
+        </div>
+
+        <!-- Menu 7 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?crop=entropy&cs=tinysrgb&fit=crop&h=500&w=800"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Grilled Chicken Caesar"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Grilled Chicken Caesar
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 95k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Ayam panggang juicy dengan selada segar, crouton, keju parmesan, dan
+            saus Caesar klasik.
+          </p>
+        </div>
+
+        <!-- Menu 8 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?crop=entropy&cs=tinysrgb&fit=crop&h=500&w=800"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Spicy Tuna Roll"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">Spicy Tuna Roll</h3>
+            <span class="text-orange-600 font-bold">Rp 120k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Sushi roll premium dengan tuna segar, mayones pedas, dan nori
+            renyah.
+          </p>
+        </div>
+
+        <!-- Menu 9 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Classic Beef Burger"
+            />
+            <div
+              class="absolute top-4 right-4 bg-orange-100/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-orange-600"
+            >
+              Bestseller
+            </div>
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Classic Beef Burger
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 110k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Burger daging sapi premium dengan keju cheddar, selada, tomat segar,
+            dan saus spesial rumah.
+          </p>
+        </div>
+
+        <!-- Menu 10 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Vegan Buddha Bowl"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">Vegan Buddha Bowl</h3>
+            <span class="text-orange-600 font-bold">Rp 88k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Nasi quinoa dengan sayuran panggang, chickpea, avocado, dan dressing
+            tahini creamy.
+          </p>
+        </div>
+
+        <!-- Menu 11 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Matcha Latte"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">Matcha Latte</h3>
+            <span class="text-orange-600 font-bold">Rp 35k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Minuman hangat berbasis teh hijau Jepang yang lembut dan
+            menenangkan.
+          </p>
+        </div>
+
+        <!-- Menu 12 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-3xl mb-6 shadow-lg h-72">
+            <img
+              src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&q=80&w=1000"
+              class="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              alt="Mango Smoothie Bowl"
+            />
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-stone-900">
+              Mango Smoothie Bowl
+            </h3>
+            <span class="text-orange-600 font-bold">Rp 55k</span>
+          </div>
+          <p class="text-stone-500 text-sm leading-relaxed">
+            Mangga segar, pisang, dan granola renyah, ditambah topping chia seed
+            untuk sarapan sehat.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- BOOKING -->
+    <section
+      class="relative py-24"
+      style="
+        background-image: url('/assets/menu-background.jpg');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- Overlay untuk membuat teks terbaca -->
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <div class="relative container mx-auto px-6 text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-white mb-8 leading-tight"
+        >
+          Makan Malam Berkesan Menanti Anda
+        </h2>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <button
+            class="bg-orange-600 text-white px-10 py-4 rounded-full font-bold hover:bg-orange-700 transition shadow-xl"
+          >
+            Reservasi Sekarang
+          </button>
+          <button
+            class="border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition"
+          >
+            Download PDF Menu
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-100 pt-20 pb-10 border-t border-stone-200">
+      <div
+        class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16"
+      >
+        <div>
+          <h3 class="text-2xl font-bold text-orange-600 mb-6 font-bold">
+            SAVERO.
+          </h3>
+          <p class="text-stone-500 mb-6 leading-relaxed">
+            Menghadirkan kebahagiaan melalui hidangan berkualitas sejak tahun
+            2015.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center hover:bg-orange-600 hover:text-white transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="#"
+              class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center hover:bg-orange-600 hover:text-white transition"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="#"
+              class="w-10 h-10 rounded-full bg-stone-200 flex items-center justify-center hover:bg-orange-600 hover:text-white transition"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">
+            Lokasi Kami
+          </h4>
+          <div
+            class="rounded-xl overflow-hidden h-48 grayscale hover:grayscale-0 transition duration-500 shadow-inner"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.5731164!3d-6.9034443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a944448d8f49e!2sBandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1625000000000!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold mb-6 uppercase tracking-widest text-sm">
+            Hubungi Kami
+          </h4>
+          <ul class="space-y-4 text-stone-600">
+            <li class="flex items-center gap-3">
+              <i class="fas fa-map-marker-alt text-orange-600"></i> Jl. Kuliner
+              No. 45, Jakarta Selatan
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-phone text-orange-600"></i> (021) 555-0123
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-orange-600"></i> hello@savoria.com
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="text-center text-stone-400 text-sm border-t border-stone-200 pt-10"
+      >
+        &copy; 2026 Savoria Bistro. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
